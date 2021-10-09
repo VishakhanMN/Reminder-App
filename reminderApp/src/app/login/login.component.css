@@ -9,7 +9,7 @@
 }  
 
 .text-center{    
-    text-align: center;
+    color: floralwhite;
     font-size: 20px;
 }
 
@@ -21,6 +21,7 @@
 .labelName {
     float: left;
     width: 40%;
+    color: floralwhite;
 }
 
 .btns{
