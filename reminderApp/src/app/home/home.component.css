@@ -1,0 +1,15 @@
+.input-group{
+    width: 50%;
+}
+
+.addReminderSection {
+    padding: 3% 10% 0% 9%;
+}
+
+.viewReminderSection {
+    padding: 3% 10% 0% 9%;
+}
+
+.nav-item:hover{
+    cursor: pointer;
+}

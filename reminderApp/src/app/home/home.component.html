@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active': displayAddReminder}" (click)="addReminder()" aria-current="page">Add Reminder</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active': !displayAddReminder}" (click)="viewReminder()">View Reminders</a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="addReminderSection" *ngIf="displayAddReminder">
+    <label for="basic-url">Set Reminder</label>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Message</span>
+        </div>
+        <textarea class="form-control" [(ngModel)]="message" aria-label="Message"></textarea>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="date">Date</span>
+        </div>
+        <input type="date" class="form-control" [(ngModel)]="date" id="basic-url" aria-describedby="date">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="time">Time (24 hour format)</span>
+        </div>
+        <input type="time" class="form-control" [(ngModel)]="time" id="basic-url" aria-describedby="time">
+    </div>
+
+    <button type="button" class="btn btn-success" (click)="addReminderToDB()">Add Reminder</button>
+
+    
+</div>
+
+<div class="viewReminderSection" *ngIf="!displayAddReminder">
+    <div *ngFor="let reminder of getReminders">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Reminder</h5>
+              <p class="card-text">{{reminder.message}}</p>
+              <p class="card-text">{{reminder.time}}</p>
+              <p class="card-text">{{reminder.date}}</p>
+              
+            </div>
+          </div>
+    </div>
+    
+</div>
